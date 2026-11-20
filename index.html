@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>GTA VI GAMER CONTRACT | مجوز رسمی بازی بدون دعوا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700;900&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['Vazirmatn','sans-serif'],display:['Bebas Neue','Orbitron','sans-serif']}}}}
+</script>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background-color:#110720;background-image:radial-gradient(circle at 15% 15%,rgba(255,42,133,.14) 0%,transparent 45%),radial-gradient(circle at 85% 80%,rgba(0,240,255,.12) 0%,transparent 45%);color:#f3e8ff;font-family:'Vazirmatn',sans-serif;min-height:100vh;overflow-x:hidden}
+.neon-pink-text{color:#ff3b93;text-shadow:0 0 14px rgba(255,42,133,.55)}
+.neon-card{background:linear-gradient(165deg,rgba(34,18,64,.94),rgba(22,11,43,.98));border:1px solid rgba(139,92,246,.3);box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.neon-input{background:#140926;border:1.5px solid #45277a;color:#fff;transition:all .25s}
+.neon-input:focus{outline:none;border-color:#00f0ff;box-shadow:0 0 15px rgba(0,240,255,.28)}
+.duration-pill{background:#160a2b;border:1.5px solid #3f2370;color:#d8b4fe;transition:all .2s}
+.duration-pill.active{background:linear-gradient(135deg,rgba(255,42,133,.25),rgba(157,78,221,.3));border-color:#ff2a85;color:#fff;box-shadow:0 0 14px rgba(255,42,133,.38)}
+.clause-item{background:rgba(24,12,46,.88);border:1.5px solid #381e63;transition:all .2s;cursor:pointer}
+.clause-item.selected{border-color:rgba(0,240,255,.55);background:linear-gradient(145deg,rgba(35,18,66,.95),rgba(20,12,42,.98));box-shadow:0 4px 16px rgba(0,240,255,.12)}
+.custom-checkbox{width:24px;height:24px;border-radius:7px;border:2px solid #5b3699;background:#120722;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;color:#06121a;font-size:14px;font-weight:900}
+.clause-item.selected .custom-checkbox{background:linear-gradient(135deg,#00f0ff,#00b4d8);border-color:#00f0ff;box-shadow:0 0 10px rgba(0,240,255,.5)}
+.btn-continue{background:linear-gradient(90deg,#00e5ff 0%,#9d4edd 50%,#ff2a85 100%);box-shadow:0 6px 22px rgba(255,42,133,.35);transition:transform .15s}
+.btn-continue:active{transform:scale(.98)}
+.btn-save-png{background:linear-gradient(90deg,#ff2a85,#d946ef);box-shadow:0 6px 24px rgba(255,42,133,.45)}
+.signature-pad{background:#120722;border:1.5px dashed #53308f;border-radius:14px;touch-action:none;cursor:crosshair}
+.fade-in{animation:fadeIn .3s ease-out forwards}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body class="pb-12">
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-[#110720]/85 border-b border-purple-900/50 px-4 py-3">
+  <div class="max-w-lg mx-auto flex items-center justify-between">
+    <button id="headerBackBtn" onclick="goBack()" class="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-purple-700/50 text-xs font-semibold text-purple-200 transition hidden">بازگشت</button>
+    <div id="headerPlaceholder" class="w-14"></div>
+    <div class="flex items-center gap-1.5" id="stepDots"></div>
+    <div class="text-left leading-none select-none" dir="ltr">
+      <div class="font-display text-base tracking-wider bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-black">GTA VI GAMER CONTRACT</div>
+      <div class="text-[9px] tracking-widest text-cyan-300/75 font-semibold text-right">VICE CITY EDITION</div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-lg mx-auto px-4 pt-5">
+
+<div id="toastBox" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden max-w-xs w-full px-4">
+  <div class="bg-[#28144d] border border-pink-500 text-white text-xs font-medium px-4 py-3 rounded-2xl shadow-2xl flex items-center justify-between gap-2">
+    <span id="toastMessage"></span>
+    <button onclick="hideToast()" class="text-pink-400 font-bold text-sm">✕</button>
+  </div>
+</div>
+
+<!-- مرحله ۱ -->
+<section id="step1" class="fade-in">
+  <div class="neon-card rounded-3xl p-5 sm:p-6">
+    <h1 class="text-center text-2xl font-extrabold neon-pink-text mb-6">اطلاعات قرارداد</h1>
+    <div class="space-y-5">
+      <div>
+        <label for="playerName" class="block text-sm font-semibold text-purple-200 mb-2">اسم بازیکن</label>
+        <input type="text" id="playerName" placeholder="مثلاً: آرمین" class="neon-input w-full rounded-2xl px-4 py-3.5 text-sm font-medium placeholder-purple-400/50">
+      </div>
+      <div>
+        <label for="parentName" class="block text-sm font-semibold text-purple-200 mb-2">اسم والد</label>
+        <input type="text" id="parentName" placeholder="مثلاً: سارا" class="neon-input w-full rounded-2xl px-4 py-3.5 text-sm font-medium placeholder-purple-400/50">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-purple-200 mb-2.5">مدت قرارداد</label>
+        <div class="grid grid-cols-4 gap-2 mb-2.5" id="durationPills">
+          <button type="button" data-duration="یک شب" onclick="selectDuration(this)" class="duration-pill rounded-xl py-2.5 px-2 text-xs font-bold">یک شب</button>
+          <button type="button" data-duration="۳ روز" onclick="selectDuration(this)" class="duration-pill rounded-xl py-2.5 px-2 text-xs font-bold">۳ روز</button>
+          <button type="button" data-duration="۷ روز" onclick="selectDuration(this)" class="duration-pill rounded-xl py-2.5 px-2 text-xs font-bold">۷ روز</button>
+          <button type="button" data-duration="۱۰ روز" onclick="selectDuration(this)" class="duration-pill active rounded-xl py-2.5 px-2 text-xs font-bold">۱۰ روز</button>
+        </div>
+        <div class="flex justify-start">
+          <button type="button" id="customDurationBtn" onclick="selectCustomDuration()" class="duration-pill rounded-xl py-2.5 px-5 text-xs font-bold">مدت دلخواه</button>
+        </div>
+        <div id="customDurationWrapper" class="mt-3 hidden">
+          <input type="text" id="customDurationInput" placeholder="مثلاً: ۱۵ روز یا یک ماه" class="neon-input w-full rounded-2xl px-4 py-3 text-sm placeholder-purple-400/50">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" onclick="goToStep(2)" class="btn-continue w-full mt-5 py-3.5 rounded-2xl text-white font-extrabold text-base">ادامه</button>
+</section>
+
+<!-- مرحله ۲ -->
+<section id="step2" class="hidden fade-in">
+  <div class="neon-card rounded-2xl p-4 mb-4">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-xs font-bold text-cyan-300" id="selectedCountBadge"></span>
+      <span class="text-[11px] text-purple-300/80">تنظیم مفاد</span>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <button type="button" onclick="selectAllClauses()" class="py-2 px-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/40 text-cyan-300 text-xs font-bold transition">انتخاب همه</button>
+      <button type="button" onclick="deselectAllClauses()" class="py-2 px-2 rounded-xl bg-purple-900/40 hover:bg-purple-800/50 border border-purple-600/40 text-purple-200 text-xs font-bold transition">لغو همه</button>
+      <button type="button" onclick="randomClauses()" class="py-2 px-2 rounded-xl bg-pink-500/15 hover:bg-pink-500/25 border border-pink-400/40 text-pink-300 text-xs font-bold transition">شانس تصادفی</button>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <div class="flex items-center gap-2 mb-3 px-1"><span class="w-1 h-5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f0ff]"></span><h2 class="text-base font-extrabold text-white">حقوق بازیکن</h2></div>
+    <div id="playerRightsList" class="space-y-2.5"></div>
+  </div>
+  <div class="mb-5">
+    <div class="flex items-center gap-2 mb-3 px-1"><span class="w-1 h-5 rounded-full bg-pink-500 shadow-[0_0_8px_#ff2a85]"></span><h2 class="text-base font-extrabold text-white">تعهدات و قوانین والد</h2></div>
+    <div id="parentRulesList" class="space-y-2.5"></div>
+  </div>
+  <div id="customSection" class="mb-5 hidden">
+    <div class="flex items-center gap-2 mb-3 px-1"><span class="w-1 h-5 rounded-full bg-yellow-400"></span><h2 class="text-base font-extrabold text-white">بندهای دلخواه</h2></div>
+    <div id="customList" class="space-y-2.5"></div>
+  </div>
+
+  <div class="neon-card rounded-3xl p-5 mb-5">
+    <h3 class="text-center text-lg font-extrabold neon-pink-text mb-4">بند دلخواه</h3>
+    <div class="space-y-3">
+      <input type="text" id="customClauseTitle" placeholder="عنوان بند" class="neon-input w-full rounded-2xl px-4 py-3 text-sm placeholder-purple-400/50">
+      <textarea id="customClauseDesc" rows="2" placeholder="توضیح بند" class="neon-input w-full rounded-2xl px-4 py-3 text-sm placeholder-purple-400/50 resize-none"></textarea>
+      <button type="button" onclick="addCustomClause()" class="w-full py-3 rounded-2xl bg-purple-700/50 hover:bg-purple-600/60 border border-pink-500/50 text-pink-200 font-bold text-sm transition">افزودن بند</button>
+    </div>
+  </div>
+  <button type="button" onclick="goToStep(3)" class="btn-continue w-full py-3.5 rounded-2xl text-white font-extrabold text-base">ادامه به امضاها</button>
+</section>
+
+<!-- مرحله ۳ -->
+<section id="step3" class="hidden fade-in">
+  <div class="neon-card rounded-3xl p-5 sm:p-6">
+    <h2 class="text-center text-2xl font-extrabold neon-pink-text mb-5">امضاها</h2>
+    <div class="mb-6">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-bold text-cyan-300">امضای بازیکن</span>
+        <span id="sigPlayerNameDisplay" class="text-xs font-semibold text-purple-200 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-700/50">بازیکن</span>
+      </div>
+      <div class="relative">
+        <canvas id="playerSigCanvas" class="signature-pad w-full h-36 block"></canvas>
+        <span id="playerSigHint" class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs text-purple-400/50">اینجا امضا کنید...</span>
+      </div>
+      <div class="flex items-center justify-between mt-2">
+        <span class="text-[11px] text-purple-300/75">با انگشت امضا کن (اختیاری)</span>
+        <button type="button" onclick="clearCanvas('playerSigCanvas','playerSigHint')" class="px-3 py-1 rounded-lg bg-pink-500/15 hover:bg-pink-500/25 border border-pink-500/40 text-pink-300 text-xs font-semibold transition">پاک کردن</button>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-bold text-pink-400">امضای والد</span>
+        <span id="sigParentNameDisplay" class="text-xs font-semibold text-purple-200 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-700/50">والد</span>
+      </div>
+      <div class="relative">
+        <canvas id="parentSigCanvas" class="signature-pad w-full h-36 block"></canvas>
+        <span id="parentSigHint" class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs text-purple-400/50">اینجا امضا کنید...</span>
+      </div>
+      <div class="flex items-center justify-between mt-2">
+        <span class="text-[11px] text-purple-300/75">با انگشت امضا کن (اختیاری)</span>
+        <button type="button" onclick="clearCanvas('parentSigCanvas','parentSigHint')" class="px-3 py-1 rounded-lg bg-pink-500/15 hover:bg-pink-500/25 border border-pink-500/40 text-pink-300 text-xs font-semibold transition">پاک کردن</button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 space-y-3">
+    <button type="button" onclick="generateAndDownloadContract()" class="btn-save-png w-full py-4 rounded-2xl text-white font-extrabold text-base flex items-center justify-center gap-2 transition active:scale-[0.98]">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"/></svg>
+      <span>ذخیره قرارداد به صورت PNG</span>
+    </button>
+    <button type="button" onclick="resetApp()" class="w-full py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-purple-700/50 text-purple-200 font-bold text-sm transition">ساخت قرارداد جدید</button>
+  </div>
+</section>
+
+<!-- مرحله ۴ -->
+<section id="step4" class="hidden fade-in">
+  <div class="mb-3 text-center">
+    <h2 class="text-xl font-extrabold neon-pink-text">قرارداد آماده است</h2>
+    <p class="text-xs text-purple-300/80 mt-1">اگر دانلود شروع نشد، روی تصویر نگه دار و ذخیره کن.</p>
+  </div>
+  <div class="neon-card rounded-2xl p-2 mb-4"><img id="previewImg" alt="پیش‌نمایش قرارداد" class="w-full rounded-xl"></div>
+  <div class="space-y-3">
+    <a id="downloadLink" download="gta-vi-contract.png" class="btn-save-png block text-center w-full py-4 rounded-2xl text-white font-extrabold text-base">دانلود دوباره PNG</a>
+    <button type="button" onclick="goBack()" class="w-full py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-purple-700/50 text-purple-200 font-bold text-sm transition">برگشت به امضاها</button>
+    <button type="button" onclick="resetApp()" class="w-full py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-purple-700/50 text-purple-200 font-bold text-sm transition">ساخت قرارداد جدید</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+const RIGHTS=[
+ {t:'ساعت بازی مشخص',d:'بازیکن هر روز یک بازه‌ی ثابت برای بازی GTA VI دارد.'},
+ {t:'ذخیره‌ی بازی',d:'والد اجازه نمی‌دهد وسط مأموریت، بازی بدون ذخیره قطع شود.'},
+ {t:'پنج دقیقه مهلت',d:'قبل از خاموش کردن، پنج دقیقه وقت برای رسیدن به نقطه‌ی ذخیره.'},
+ {t:'بازی با دوستان',d:'بازیکن می‌تواند در ساعت مجاز با دوستانش بازی کند.'},
+ {t:'استراحت جایزه‌دار',d:'بعد از انجام درس و کارهای خانه، نیم ساعت بازی اضافه.'},
+ {t:'حق انتخاب بازی',d:'نوع مأموریت و مسیر بازی با بازیکن است.'},
+ {t:'حق توضیح',d:'قبل از هر تصمیم، بازیکن اجازه‌ی توضیح دادن دارد.'},
+ {t:'میان‌وعده‌ی گیمری',d:'یک میان‌وعده‌ی سالم کنار کنترلر مجاز است.'},
+ {t:'روز بدون محدودیت',d:'هر هفته یک روز تعطیل با ساعت بازی بیشتر.'}
+];
+const RULES=[
+ {t:'بدون داد و فریاد',d:'والد برای خاموش کردن بازی صدایش را بالا نمی‌برد.'},
+ {t:'یادآوری قبلی',d:'والد ده دقیقه قبل از پایان وقت، یادآوری می‌کند.'},
+ {t:'احترام به بازی',d:'والد برای دیدن بازی و پرسیدن سؤال وقت می‌گذارد.'},
+ {t:'بدون تهدید',d:'والد با حذف یا مخفی کردن کنسول تهدید نمی‌کند.'},
+ {t:'اجرای یک‌سان قوانین',d:'قوانین هر روز یک‌سان اجرا می‌شود، نه بر اساس حال و هوا.'},
+ {t:'همراهی گاهی',d:'والد هفته‌ای یک بار با بازیکن بازی می‌کند.'},
+ {t:'پاداش به موقع',d:'هر قول پاداش، سر وقت و کامل داده می‌شود.'},
+ {t:'گفتگو، نه دعوا',d:'اختلاف‌ها با گفتگوی آرام و بدون دعوا حل می‌شود.'},
+ {t:'اجازه‌ی خرید',d:'خرید درون‌بازی فقط با هماهنگی و قبل از پرداخت.'}
+];
+let custom=[], sel=new Set(), step=1, duration='۱۰ روز', isCustomDur=false;
+const $=id=>document.getElementById(id);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const allIds=()=>[...RIGHTS.map((_,i)=>'r'+i),...RULES.map((_,i)=>'p'+i),...custom.map((_,i)=>'c'+i)];
+
+function toast(m){$('toastMessage').textContent=m;$('toastBox').classList.remove('hidden');clearTimeout(toast.t);toast.t=setTimeout(hideToast,2800)}
+function hideToast(){$('toastBox').classList.add('hidden')}
+
+function dots(){
+  $('stepDots').innerHTML=[1,2,3,4].map(i=>`<span class="h-1.5 ${i===step?'w-7 bg-gradient-to-r from-cyan-400 to-pink-500':'w-4 bg-purple-900'} rounded-full transition-all"></span>`).join('');
+  $('headerBackBtn').classList.toggle('hidden',step===1);
+  $('headerPlaceholder').classList.toggle('hidden',step!==1);
+}
+function show(n){
+  step=n;[1,2,3,4].forEach(i=>$('step'+i).classList.toggle('hidden',i!==n));
+  $('step'+n).classList.remove('fade-in');void $('step'+n).offsetWidth;$('step'+n).classList.add('fade-in');
+  dots();window.scrollTo({top:0,behavior:'smooth'});
+}
+function goBack(){if(step>1)show(step-1)}
+function goToStep(n){
+  if(n===2){
+    if(!$('playerName').value.trim()||!$('parentName').value.trim())return toast('اسم بازیکن و اسم والد را بنویس.');
+    if(isCustomDur&&!$('customDurationInput').value.trim())return toast('مدت دلخواه را بنویس.');
+  }
+  if(n===3){
+    if(!sel.size)return toast('حداقل یک بند انتخاب کن.');
+    $('sigPlayerNameDisplay').textContent=$('playerName').value.trim()||'بازیکن';
+    $('sigParentNameDisplay').textContent=$('parentName').value.trim()||'والد';
+    show(3);initSigs();return;
+  }
+  show(n);
+}
+
+/* مدت */
+function selectDuration(btn){
+  isCustomDur=false;duration=btn.dataset.duration;
+  document.querySelectorAll('.duration-pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');$('customDurationWrapper').classList.add('hidden');
+}
+function selectCustomDuration(){
+  isCustomDur=true;
+  document.querySelectorAll('.duration-pill').forEach(b=>b.classList.remove('active'));
+  $('customDurationBtn').classList.add('active');$('customDurationWrapper').classList.remove('hidden');
+  $('customDurationInput').focus();
+}
+const getDuration=()=>isCustomDur?$('customDurationInput').value.trim():duration;
+
+/* بندها */
+function itemHTML(id,c){
+  return `<div class="clause-item ${sel.has(id)?'selected':''} rounded-2xl p-3.5 flex items-start gap-3" onclick="toggleClause('${id}')">
+    <div class="custom-checkbox">${sel.has(id)?'✓':''}</div>
+    <div><div class="text-sm font-bold text-white">${esc(c.t)}</div><div class="text-xs text-purple-200/80 mt-1 leading-6">${esc(c.d)}</div></div></div>`;
+}
+function esc(s){return s.replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function renderClauses(){
+  $('playerRightsList').innerHTML=RIGHTS.map((c,i)=>itemHTML('r'+i,c)).join('');
+  $('parentRulesList').innerHTML=RULES.map((c,i)=>itemHTML('p'+i,c)).join('');
+  $('customList').innerHTML=custom.map((c,i)=>itemHTML('c'+i,c)).join('');
+  $('customSection').classList.toggle('hidden',!custom.length);
+  $('selectedCountBadge').textContent=`${fa(sel.size)} بند از ${fa(allIds().length)} بند انتخاب شده`;
+}
+function toggleClause(id){sel.has(id)?sel.delete(id):sel.add(id);renderClauses()}
+function selectAllClauses(){allIds().forEach(i=>sel.add(i));renderClauses()}
+function deselectAllClauses(){sel.clear();renderClauses()}
+function randomClauses(){
+  sel.clear();allIds().forEach(i=>{if(Math.random()<.5)sel.add(i)});
+  if(!sel.size)sel.add(allIds()[0]);renderClauses();
+}
+function addCustomClause(){
+  const t=$('customClauseTitle').value.trim(),d=$('customClauseDesc').value.trim();
+  if(!t)return toast('عنوان بند را بنویس.');
+  custom.push({t,d});sel.add('c'+(custom.length-1));
+  $('customClauseTitle').value='';$('customClauseDesc').value='';renderClauses();toast('بند اضافه شد.');
+}
+
+/* امضا */
+const pads={};
+function setupPad(cid,hid){
+  const cv=$(cid),dpr=window.devicePixelRatio||1,r=cv.getBoundingClientRect();
+  cv.width=r.width*dpr;cv.height=r.height*dpr;
+  const x=cv.getContext('2d');x.scale(dpr,dpr);x.lineWidth=3;x.lineCap='round';x.lineJoin='round';x.strokeStyle='#00f0ff';
+  const st=pads[cid]={ink:false,draw:false};
+  const pt=e=>{const b=cv.getBoundingClientRect();return[e.clientX-b.left,e.clientY-b.top]};
+  if(!st.bound){
+    cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);st.draw=true;const[a,b]=pt(e);x.beginPath();x.moveTo(a,b);x.lineTo(a+.01,b);x.stroke();st.ink=true;$(hid).classList.add('hidden')});
+    cv.addEventListener('pointermove',e=>{if(!st.draw)return;const[a,b]=pt(e);x.lineTo(a,b);x.stroke()});
+    ['pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>st.draw=false));
+    st.bound=true;
+  }
+}
+let sigInit=false;
+function initSigs(){
+  if(sigInit)return;sigInit=true;
+  setupPad('playerSigCanvas','playerSigHint');setupPad('parentSigCanvas','parentSigHint');
+}
+function clearCanvas(cid,hid){
+  const cv=$(cid),x=cv.getContext('2d');x.save();x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,cv.width,cv.height);x.restore();
+  pads[cid].ink=false;$(hid).classList.remove('hidden');
+}
+
+/* ساخت PNG */
+function wrap(x,text,maxW){
+  const words=text.split(' '),lines=[];let cur='';
+  for(const w of words){const t=cur?cur+' '+w:w;if(x.measureText(t).width>maxW&&cur){lines.push(cur);cur=w}else cur=t}
+  if(cur)lines.push(cur);return lines;
+}
+function layout(x,W,draw,data){
+  const P=70,R=W-P,IW=W-P*2;let y=80;
+  x.direction='rtl';
+  x.textAlign='center';x.fillStyle='#ff3b93';x.font='72px "Bebas Neue",Orbitron,sans-serif';
+  if(draw){x.shadowColor='rgba(255,42,133,.7)';x.shadowBlur=24}
+  x.direction='ltr';x.fillText('GTA VI GAMER CONTRACT',W/2,y);x.direction='rtl';x.shadowBlur=0;y+=60;
+  x.fillStyle='#00f0ff';x.font='700 32px Vazirmatn,sans-serif';x.fillText('قرارداد رسمی بازی بدون دعوا',W/2,y);y+=30;
+  if(draw){x.fillStyle='#45277a';x.fillRect(P,y,IW,3)}y+=50;
+  x.textAlign='right';x.font='600 30px Vazirmatn,sans-serif';
+  [['بازیکن',data.player],['والد',data.parent],['مدت قرارداد',data.dur],['تاریخ',data.date]].forEach(([k,v])=>{
+    if(draw){x.fillStyle='#a78bfa';x.fillText(k+':',R,y);x.fillStyle='#fff';x.fillText(v,R-170,y)}y+=48;
+  });
+  y+=10;
+  data.sections.forEach(s=>{
+    if(!s.items.length)return;
+    y+=20;if(draw){x.fillStyle=s.color;x.fillRect(R-8,y-32,8,40);x.fillStyle='#fff';x.font='800 36px Vazirmatn,sans-serif';x.fillText(s.title,R-28,y)}y+=56;
+    s.items.forEach(c=>{
+      x.font='700 30px Vazirmatn,sans-serif';if(draw){x.fillStyle=s.color;x.fillText('• '+c.t,R,y)}y+=46;
+      if(c.d){x.font='400 27px Vazirmatn,sans-serif';wrap(x,c.d,IW-30).forEach(l=>{if(draw){x.fillStyle='#d8c7f5';x.fillText(l,R-30,y)}y+=42});}
+      y+=14;
+    });
+  });
+  y+=30;if(draw){x.fillStyle='#45277a';x.fillRect(P,y,IW,3)}y+=60;
+  const bw=(IW-40)/2,bh=190;
+  [[R-bw,'امضای بازیکن',data.player,data.pImg,'#00f0ff'],[P,'امضای والد',data.parent,data.qImg,'#ff3b93']].forEach(([bx,lab,nm,img,col])=>{
+    if(draw){
+      x.textAlign='center';x.fillStyle=col;x.font='700 28px Vazirmatn,sans-serif';x.fillText(lab+' — '+nm,bx+bw/2,y);
+      x.strokeStyle='#53308f';x.lineWidth=2;x.setLineDash([10,8]);x.strokeRect(bx,y+20,bw,bh);x.setLineDash([]);
+      if(img)x.drawImage(img,bx+10,y+30,bw-20,bh-20);
+    }
+  });
+  y+=20+bh+70;
+  if(draw){x.textAlign='center';x.fillStyle='#7c5cc4';x.font='500 24px Vazirmatn,sans-serif';x.fillText('با امضای این قرارداد، دعوا رسماً تعطیل شد 🎮',W/2,y-20)}
+  return y+30;
+}
+async function generateAndDownloadContract(){
+  try{await Promise.all(['700 30px Vazirmatn','400 27px Vazirmatn','72px "Bebas Neue"'].map(f=>document.fonts.load(f,'آ A')))}catch(e){}
+  const pick=id=>pads[id]&&pads[id].ink?$(id):null;
+  const lists=(arr,p)=>arr.map((c,i)=>sel.has(p+i)?c:null).filter(Boolean);
+  const data={
+    player:$('playerName').value.trim(),parent:$('parentName').value.trim(),dur:getDuration(),
+    date:new Date().toLocaleDateString('fa-IR'),
+    pImg:pick('playerSigCanvas'),qImg:pick('parentSigCanvas'),
+    sections:[
+      {title:'حقوق بازیکن',color:'#00f0ff',items:lists(RIGHTS,'r')},
+      {title:'تعهدات و قوانین والد',color:'#ff3b93',items:lists(RULES,'p')},
+      {title:'بندهای دلخواه',color:'#f5c542',items:lists(custom,'c')}
+    ]
+  };
+  const W=1080,tmp=document.createElement('canvas').getContext('2d');
+  const H=Math.ceil(layout(tmp,W,false,data));
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const x=cv.getContext('2d');
+  const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1b0e33');g.addColorStop(1,'#110720');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='#ff2a85';x.lineWidth=6;x.strokeRect(20,20,W-40,H-40);
+  layout(x,W,true,data);
+  cv.toBlob(b=>{
+    const url=URL.createObjectURL(b);
+    $('previewImg').src=url;$('downloadLink').href=url;
+    const a=document.createElement('a');a.href=url;a.download='gta-vi-contract.png';document.body.appendChild(a);a.click();a.remove();
+    show(4);
+  },'image/png');
+}
+
+function resetApp(){
+  sel=new Set(allIds().filter(i=>!i.startsWith('c')));custom=[];sel=new Set([...RIGHTS.map((_,i)=>'r'+i),...RULES.map((_,i)=>'p'+i)]);
+  ['playerName','parentName','customDurationInput','customClauseTitle','customClauseDesc'].forEach(i=>$(i).value='');
+  selectDuration(document.querySelector('[data-duration="۱۰ روز"]'));
+  ['playerSigCanvas','parentSigCanvas'].forEach((c,i)=>{if(pads[c])clearCanvas(c,i?'parentSigHint':'playerSigHint')});
+  renderClauses();show(1);
+}
+
+sel=new Set([...RIGHTS.map((_,i)=>'r'+i),...RULES.map((_,i)=>'p'+i)]);
+renderClauses();dots();
+</script>
+</body>
+</html>
